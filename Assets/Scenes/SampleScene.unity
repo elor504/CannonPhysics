@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1045885351}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Kinematic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,11 +609,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045885350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.16, y: 13.26, z: 0}
+  m_LocalPosition: {x: 5.88, y: 5.02, z: -13.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1222145375}
-  m_RootOrder: 1
+  m_Father: {fileID: 1367438946}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1222145373
 GameObject:
@@ -648,11 +648,16 @@ MonoBehaviour:
   Projectile: {fileID: 3156839631874456638, guid: dc315ef37541d164a9e8286d71460422,
     type: 3}
   CannonAnglePower: {x: 2, y: 2, z: 0}
-  CannonPower: 2
+  CannonPower: 42
   CannonRotation: 0
   Boom: {fileID: 562800216}
   CannonMuzzle: {fileID: 1367438946}
-  ShootFromTrans: {fileID: 1045885351}
+  ShootFromKinematic: {fileID: 1045885351}
+  ShootNormal: {fileID: 1346036141}
+  isShootingCalculated: 1
+  isShootingRigidBody: 1
+  isShootingKinematic1: 0
+  isShootingKinematic2: 0
 --- !u!4 &1222145375
 Transform:
   m_ObjectHideFlags: 0
@@ -665,7 +670,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1367438947}
-  - {fileID: 1045885351}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -734,6 +738,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1346036140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1346036141}
+  m_Layer: 0
+  m_Name: NotKinematic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1346036141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346036140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.66, y: 5.02, z: -13.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1367438946}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1367438945
 PrefabInstance:

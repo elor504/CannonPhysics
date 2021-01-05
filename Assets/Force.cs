@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Force : MonoBehaviour
 {
- 
-  
+
+
     List<Vector3> forces = new List<Vector3>();
     Vector3 shakul;
     float gravityCounter = 0f;
     [SerializeField] Vector3 gravity;
-    
+
     Rigidbody rb;
 
 
@@ -19,10 +18,10 @@ public class Force : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-   
+
     public void AddForce(Vector3 _Force)
     {
-    
+
         forces.Add(_Force);
     }
     //public void ShootDirection(int Power)
@@ -44,29 +43,32 @@ public class Force : MonoBehaviour
         }
         shakul += gravityCounter * gravity;
 
+        if (rb.isKinematic)
+        {
+            rb.position = transform.position + shakul;
+        }
+        else
+        {
 
-        rb.position = transform.position + shakul;
+            Vector3 pos = transform.position;
+            //do changes
+            pos += shakul;
+            transform.position = pos;
+
+        }
+
         //transform.Translate(shakul);
-        //Vector3 pos = transform.position;
-        //do chagnes
-        //pos += shakul;
-        // transform.position = pos;
 
-        if(transform.position.y < -5)
+
+
+
+        if (transform.position.y < -5)
         {
             Destroy(this.gameObject);
         }
 
+
     }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            Debug.Log("hit");
-            Destroy(this.gameObject);
-        }
-    }
 
 }
