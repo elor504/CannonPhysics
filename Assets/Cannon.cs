@@ -9,21 +9,33 @@ public class Cannon : MonoBehaviour
     public GameObject Projectile;
     [SerializeField] Vector3 CannonAnglePower;
     public int CannonPower;
-    public int CannonRBPower => CannonPower * 1000;
+    public int CannonRBPower => CannonPower * 2000;
     Quaternion test;
-    [SerializeField] int CannonRotation;
+    public int CannonRotation;
     [SerializeField] AudioSource Boom;
     [SerializeField] Transform CannonMuzzle;
     [SerializeField] Transform ShootFromKinematic;
     [SerializeField] Transform ShootNormal;
-    [SerializeField] bool isShootingCalculated;
-    [SerializeField] bool isShootingRigidBody;
+    public bool isShootingCalculated;
+    public bool isShootingRigidBody;
     [SerializeField] bool isShootingKinematic1;
     [SerializeField] bool isShootingKinematic2;
+
+    public int cannonHeight;
+
+    SpriteRenderer sprite;
+
+
+
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -35,7 +47,10 @@ public class Cannon : MonoBehaviour
             CannonMuzzle.localEulerAngles = new Vector3(CannonRotation, 0, 0);
 
         }
-
+        if(transform.position.y != cannonHeight)
+        {
+            transform.position = new Vector2(transform.position.x, cannonHeight);
+        }
 
 
 

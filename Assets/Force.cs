@@ -64,6 +64,9 @@ public class Force : MonoBehaviour
 
         if (transform.position.y < -5)
         {
+            transform.GetChild(0).SetParent(null);
+
+
             Destroy(this.gameObject);
         }
 
